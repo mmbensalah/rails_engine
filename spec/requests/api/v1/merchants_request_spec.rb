@@ -24,7 +24,7 @@ describe "Merchant API" do
 
     merchant = JSON.parse(response.body)
 
-    expect(merchant["data"]["attributes"]["id"]).to eq(id)
+    expect(merchant["data"]["attributes"]["id"]).to   eq(id)
     expect(merchant["data"]["attributes"]["name"]).to eq(name)
   end
 end
