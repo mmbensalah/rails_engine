@@ -27,3 +27,11 @@ task :import_csv => [:environment] do
     Transaction.create(row.to_h)
   end
 end
+
+desc 'Add invoice total values to total column on Invoices table'
+
+task :update_invoice_total => [:environment] do
+  Invoice.all.each do |invoice|
+    Invoice.update(invoice.id, total: Invoice.invoice_total(invoice.id) / 100)
+  end
+end
