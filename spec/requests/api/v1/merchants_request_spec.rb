@@ -29,7 +29,7 @@ describe "Merchant API" do
   end
 
   xit 'returns a merchant by searching by name' do
-    merchant = Merchant.create(id: 1, name: "Merkel&Sons")
+    merchant = Merchant.create!(id: 1, name: "Merkel&Sons")
 
     get "/api/v1/merchants/find?name=Merkel&Sons"
 
