@@ -26,4 +26,17 @@ describe 'Invoices API' do
 
     expect(invoice["data"]["attributes"]["status"]).to eq(status)
   end
+  
+  it 'returns an item by searching by id' do
+    merchant = Merchant.create(id: 1, name: "Merkel&Sons")
+    customer = Customer.create(id: 1, first_name: "Rainy", last_name: "Day")
+    invoice  = Invoice.create!(id: 1, merchant_id: 1, customer_id: 1)
+
+    get "/api/v1/invoices/find?id=#{invoice.id}"
+
+    expect(response).to be_successful
+
+    invoice_parsed = JSON.parse(response.body)
+    expect(invoice_parsed["data"][0]["attributes"]["id"]).to eq(invoice.id)
+  end
 end

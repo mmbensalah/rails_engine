@@ -30,7 +30,7 @@ describe 'Items API' do
 
   it 'returns an item by searching by name' do
     merchant = Merchant.create(id: 1, name: "Merkel&Sons")
-    item =     Item.create!(id: 1, merchant_id: 1, name: "Glass Bottle", description: "c. 1890", unit_price: 200, )
+    item =     Item.create!(id: 1, merchant_id: 1, name: "Glass Bottle", description: "c. 1890", unit_price: 200 )
 
     get "/api/v1/items/find?name=#{item.name}"
 
@@ -43,7 +43,7 @@ describe 'Items API' do
 
   it 'returns an item by searching by description' do
     merchant = Merchant.create(id: 1, name: "Merkel&Sons")
-    item =     Item.create!(id: 1, merchant_id: 1, name: "Glass Bottle", description: "c. 1890", unit_price: 200, )
+    item =     Item.create!(id: 1, merchant_id: 1, name: "Glass Bottle", description: "c. 1890", unit_price: 200 )
 
     get "/api/v1/items/find?description=#{item.description}"
 
@@ -53,9 +53,21 @@ describe 'Items API' do
     expect(item_parsed["data"][0]["attributes"]["description"]).to eq(item.description)
   end
 
+  it 'returns an item by searching by unit_price' do
+    merchant = Merchant.create(id: 1, name: "Merkel&Sons")
+    item =     Item.create!(id: 1, merchant_id: 1, name: "Glass Bottle", description: "c. 1890", unit_price: 200 )
+
+    get "/api/v1/items/find?unit_price=#{item.unit_price}"
+
+    expect(response).to be_successful
+
+    item_parsed = JSON.parse(response.body)
+    expect(item_parsed["data"][0]["attributes"]["unit_price"]).to eq(item.unit_price)
+  end
+
   it 'returns an item by searching by id' do
     merchant = Merchant.create(id: 1, name: "Merkel&Sons")
-    item =     Item.create!(id: 1, merchant_id: 1, name: "Glass Bottle", description: "c. 1890", unit_price: 200, )
+    item =     Item.create!(id: 1, merchant_id: 1, name: "Glass Bottle", description: "c. 1890", unit_price: 200 )
 
     get "/api/v1/items/find?id=#{item.id}"
 
