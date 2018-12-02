@@ -8,6 +8,10 @@ Rails.application.routes.draw do
         get '/most_items'             => 'most_items#index'
         get '/revenue'                => 'revenue#index'
       end
+      namespace :customers do
+        get '/find'                   => 'find#index'
+      
+      end
       resources :merchants,    only: [:index, :show]
       resources :customers,    only: [:index, :show]
       resources :items,        only: [:index, :show]
