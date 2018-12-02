@@ -37,7 +37,7 @@ describe 'Transaction API' do
     expect(response).to be_successful
 
     transaction_parsed = JSON.parse(response.body)
-    expect(transaction_parsed["data"][0]["attributes"]["id"]).to eq(transaction.id)
+    expect(transaction_parsed["data"]["attributes"]["id"]).to eq(transaction.id)
   end
 
   it 'returns a transaction by searching by credit card number' do
@@ -51,6 +51,6 @@ describe 'Transaction API' do
     expect(response).to be_successful
 
     transaction_parsed = JSON.parse(response.body)
-    expect(transaction_parsed["data"][0]["attributes"]["credit_card_number"]).to eq(transaction.credit_card_number)
+    expect(transaction_parsed["data"]["attributes"]["credit_card_number"]).to eq(transaction.credit_card_number)
   end
 end
