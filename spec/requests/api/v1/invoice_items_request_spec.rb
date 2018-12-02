@@ -41,6 +41,6 @@ describe 'InvoiceItems API' do
     expect(response).to be_successful
 
     invoice_item_parsed = JSON.parse(response.body)
-    expect(invoice_item_parsed["data"][0]["attributes"]["id"]).to eq(invoice_item.id)
+    expect(invoice_item_parsed["data"]["attributes"]["id"]).to eq(invoice_item.id)
   end
 end
