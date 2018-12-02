@@ -38,7 +38,7 @@ describe 'Items API' do
 
     item_parsed = JSON.parse(response.body)
 
-    expect(item_parsed["data"][0]["attributes"]["name"]).to eq(item.name)
+    expect(item_parsed["data"]["attributes"]["name"]).to eq(item.name)
   end
 
   it 'returns an item by searching by description' do
@@ -50,7 +50,7 @@ describe 'Items API' do
     expect(response).to be_successful
 
     item_parsed = JSON.parse(response.body)
-    expect(item_parsed["data"][0]["attributes"]["description"]).to eq(item.description)
+    expect(item_parsed["data"]["attributes"]["description"]).to eq(item.description)
   end
 
   it 'returns an item by searching by unit_price' do
@@ -62,7 +62,7 @@ describe 'Items API' do
     expect(response).to be_successful
 
     item_parsed = JSON.parse(response.body)
-    expect(item_parsed["data"][0]["attributes"]["unit_price"]).to eq(item.unit_price)
+    expect(item_parsed["data"]["attributes"]["unit_price"]).to eq(item.unit_price)
   end
 
   it 'returns an item by searching by id' do
@@ -74,6 +74,23 @@ describe 'Items API' do
     expect(response).to be_successful
 
     item_parsed = JSON.parse(response.body)
-    expect(item_parsed["data"][0]["attributes"]["id"]).to eq(item.id)
+    expect(item_parsed["data"]["attributes"]["id"]).to eq(item.id)
+  end
+
+  it 'returns multiple items by searching by name' do
+    merchant = Merchant.create(id: 1, name: "Merkel&Sons")
+    item     = Item.create!(id: 1, merchant_id: 1, name: "Glass Bottle", description: "c. 1890", unit_price: 200 )
+    item_1   = Item.create!(id: 2, merchant_id: 1, name: "Glass Bottle", description: "c. 1890", unit_price: 200 )
+    item_2   = Item.create!(id: 3, merchant_id: 1, name: "Glass Bottle", description: "c. 1890", unit_price: 200 )
+
+    get "/api/v1/items/find_all?name=#{item.name}"
+
+    expect(response).to be_successful
+
+    item_parsed = JSON.parse(response.body)
+
+    expect(item_parsed["data"][0]["attributes"]["name"]).to eq(item.name)
+    expect(item_parsed["data"][1]["attributes"]["name"]).to eq(item_1.name)
+    expect(item_parsed["data"][2]["attributes"]["name"]).to eq(item_2.name)
   end
 end
