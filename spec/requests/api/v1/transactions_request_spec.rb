@@ -25,4 +25,32 @@ describe 'Transaction API' do
     expect(transaction["data"]["attributes"]["credit_card_number"]).to eq(cc)
     expect(transaction["data"]["attributes"]["result"]).to eq(result)
   end
+
+  it 'returns a transaction by searching by id' do
+    merchant     = Merchant.create(id: 1, name: "Merkel&Sons")
+    customer     = Customer.create(id: 1, first_name: "Rainy", last_name: "Day")
+    invoice      = Invoice.create!(id: 1, merchant_id: 1, customer_id: 1)
+    transaction  = Transaction.create!(id: 1, invoice_id: 1)
+
+    get "/api/v1/transactions/find?id=#{transaction.id}"
+
+    expect(response).to be_successful
+
+    transaction_parsed = JSON.parse(response.body)
+    expect(transaction_parsed["data"][0]["attributes"]["id"]).to eq(transaction.id)
+  end
+
+  it 'returns a transaction by searching by credit card number' do
+    merchant     = Merchant.create(id: 1, name: "Merkel&Sons")
+    customer     = Customer.create(id: 1, first_name: "Rainy", last_name: "Day")
+    invoice      = Invoice.create!(id: 1, merchant_id: 1, customer_id: 1)
+    transaction  = Transaction.create!(id: 1, invoice_id: 1, credit_card_number: "1111222233334444")
+
+    get "/api/v1/transactions/find?credit_card_number=#{transaction.credit_card_number}"
+
+    expect(response).to be_successful
+
+    transaction_parsed = JSON.parse(response.body)
+    expect(transaction_parsed["data"][0]["attributes"]["credit_card_number"]).to eq(transaction.credit_card_number)
+  end
 end
