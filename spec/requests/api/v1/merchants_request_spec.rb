@@ -48,7 +48,18 @@ describe "Merchant API" do
     expect(response).to be_successful
 
     merchant_parsed = JSON.parse(response.body)
+    expect(merchant_parsed["data"]["attributes"]["id"]).to eq(merchant.id)
+  end
 
+  it 'returns multiple merchants by searching for id' do
+    merchant = Merchant.create(id: 1, name: "Merkel&Sons")
+
+    get "/api/v1/merchants/find_all?id=#{merchant.id}"
+
+    expect(response).to be_successful
+
+    merchant_parsed = JSON.parse(response.body)
+    
     expect(merchant_parsed["data"][0]["attributes"]["id"]).to eq(merchant.id)
   end
 end
