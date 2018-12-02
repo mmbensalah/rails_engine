@@ -53,6 +53,7 @@ describe 'Transaction API' do
     transaction_parsed = JSON.parse(response.body)
     expect(transaction_parsed["data"]["attributes"]["credit_card_number"]).to eq(transaction.credit_card_number)
   end
+  
   it 'returns multiple transaction by searching by credit card number' do
     merchant      = Merchant.create(id: 1, name: "Merkel&Sons")
     customer      = Customer.create(id: 1, first_name: "Rainy", last_name: "Day")
