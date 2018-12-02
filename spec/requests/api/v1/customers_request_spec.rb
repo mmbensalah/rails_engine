@@ -12,7 +12,7 @@ describe 'Customers API' do
     expect(customers["data"].count).to eq(10)
   end
 
-  it 'should one customer' do
+  it 'should return one customer' do
     test_customer = create(:customer)
     id            = test_customer.id
     first_name    = test_customer.first_name
