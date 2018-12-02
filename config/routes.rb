@@ -10,19 +10,24 @@ Rails.application.routes.draw do
         get '/revenue'                => 'revenue#index'
       end
       namespace :customers do
-        get '/find'                   => 'find#index'
+        get '/find'                   => 'find#show'
+        get '/find_all'               => 'find#index'
       end
       namespace :items do
-        get '/find'                   => 'find#index'
+        get '/find'                   => 'find#show'
+        get '/find_all'               => 'find#index'
       end
       namespace :invoices do
-        get '/find'                   => 'find#index'
+        get '/find'                   => 'find#show'
+        get '/find_all'               => 'find#index'
       end
       namespace :invoice_items do
-        get '/find'                   => 'find#index'
+        get '/find'                   => 'find#show'
+        get '/find_all'               => 'find#index'
       end
       namespace :transactions do
-        get '/find'                   => 'find#index'
+        get '/find'                   => 'find#show'
+        get '/find_all'               => 'find#index'
       end
       resources :merchants,    only: [:index, :show]
       resources :customers,    only: [:index, :show]
