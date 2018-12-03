@@ -1,4 +1,4 @@
-RAILS ENGINE
+##RAILS ENGINE
 
 Blog post outlining my thoughts on the project: https://medium.com/@mmbensalah/rails-engine-part-ii-2e63e6f24768
 
@@ -9,22 +9,22 @@ RailsEngine is the first week’s project of the third (of four) learning module
 * Rails version
     * 5.2.1
 
-Project Objective: 
+###Project Objective: 
 
-	1. Write a rake task to import CSV data for tables for Merchant, Customer, Invoice, Item, InvoiceItem, Transaction	
-	2. Build out index and show API endpoints for the above tables
-	3. Build out index/show API endpoints for the relationships between the tables i.e. “/api/v1/merchants/1/items will return all the items sold by merchant with id = 1
-	4. Utilize FastJSONAPI serializers to format the API outputs to the project specifications
-	5. Create Active Record queries to find the data requested by the project spec
+1. Write a rake task to import CSV data for tables for Merchant, Customer, Invoice, Item, InvoiceItem, Transaction	
+2. Build out index and show API endpoints for the above tables
+3. Build out index/show API endpoints for the relationships between the tables i.e. “/api/v1/merchants/1/items will return all the items sold by merchant with id = 1
+4. Utilize [Fast_JSONAPI](https://github.com/Netflix/fast_jsonapi) serializers to format the API outputs to the project specifications to comply with the JSON 1.0 spec.
+5. Create Active Record queries to find the data requested by the project spec
 
-Getting Started: 
-	1. Clone down the project and run 
-		1. bundle
-		2. rails db:{create,migrate}
-		3. rake import_csv
-		4. rake :update_invoice_total
-	2. Now you can run rails s from the terminal to visit all of the endpoints outlined below!
-	3. To run the test suite, simply execute ‘rspec’
+###Getting Started: 
+1. Clone down the project and run 
+  1. bundle
+  2. rails db:{create,migrate}	
+  3. rake import_csv
+  4. rake :update_invoice_total
+2. Now you can run rails s from the terminal to visit all of the endpoints outlined below!
+3. To run the test suite, simply execute ‘rspec’
 
 Endpoints: 
 
