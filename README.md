@@ -19,12 +19,12 @@ RailsEngine is the first week’s project of the third (of four) learning module
 
 ## Getting Started: 
 1. Clone down the project and run 
-  1. bundle
-  2. rails db:{create,migrate}	
-  3. rake import_csv
-  4. rake :update_invoice_total
-2. Now you can run rails s from the terminal to visit all of the endpoints outlined below!
-3. To run the test suite, simply execute ‘rspec’
+  1. `$ bundle`
+  2. `$ rails db:{create,migrate}`	
+  3. `$ rake import_csv`
+  4. `$ rake :update_invoice_total`
+2. Now you can run `rails s` from the terminal to visit all of the endpoints outlined below!
+3. To run the test suite, simply execute `rspec`
 
 ## Endpoints: 
 
