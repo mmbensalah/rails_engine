@@ -5,8 +5,8 @@ Rails.application.routes.draw do
       namespace :merchants do
         get '/find'                   => 'find#show'
         get '/find_all'               => 'find#index'
-        get '/:id/items'              => 'items#show'
-        get '/:id/invoices'           => 'invoices#show'
+        get '/:id/items'              => 'items#index'
+        get '/:id/invoices'           => 'invoices#index'
         get '/most_revenue'           => 'most_revenue#index'
         get '/most_items'             => 'most_items#index'
         get '/revenue'                => 'revenue#index'
@@ -22,6 +22,11 @@ Rails.application.routes.draw do
       namespace :invoices do
         get '/find'                   => 'find#show'
         get '/find_all'               => 'find#index'
+        get '/:id/transactions'       => 'transactions#index'
+        get '/:id/invoice_items'      => 'invoice_items#index'
+        get '/:id/items'              => 'items#index'
+        get '/:id/customer'           => 'customers#show'
+        get '/:id/merchant'           => 'merchants#show'
       end
       namespace :invoice_items do
         get '/find'                   => 'find#show'
