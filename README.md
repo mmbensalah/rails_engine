@@ -1,5 +1,7 @@
 RAILS ENGINE
 
+Blog post outlining my thoughts on the project: https://medium.com/@mmbensalah/rails-engine-part-ii-2e63e6f24768
+
 RailsEngine is the first week’s project of the third (of four) learning modules at Turing School of Engineering and Design. 
 
 * Ruby version
