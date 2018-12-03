@@ -93,4 +93,35 @@ describe 'Items API' do
     expect(item_parsed["data"][1]["attributes"]["name"]).to eq(item_1.name)
     expect(item_parsed["data"][2]["attributes"]["name"]).to eq(item_2.name)
   end
+
+  it 'returns multiple invoice items associated w/ an item' do
+    merchant       = Merchant.create(id: 1, name: "Merkel&Sons")
+    item           = Item.create!(id: 1, merchant_id: 1, name: "Glass Bottle", description: "c. 1890", unit_price: 200 )
+    invoice_item   = create(:invoice_item, item_id: 1)
+    invoice_item_1 = create(:invoice_item, item_id: 1)
+    invoice_item_2 = create(:invoice_item, item_id: 1)
+
+    get "/api/v1/items/#{item.id}/invoice_items"
+
+    expect(response).to be_successful
+
+    invoice_items_parsed = JSON.parse(response.body)
+
+    expect(invoice_items_parsed["data"][0]["attributes"]["id"]).to eq(invoice_item.id)
+    expect(invoice_items_parsed["data"][1]["attributes"]["id"]).to eq(invoice_item_1.id)
+    expect(invoice_items_parsed["data"][2]["attributes"]["id"]).to eq(invoice_item_2.id)
+  end
+
+  it 'returns a merchant associated w/ an item' do
+    merchant       = Merchant.create(id: 1, name: "Merkel&Sons")
+    item           = Item.create!(id: 1, merchant_id: 1, name: "Glass Bottle", description: "c. 1890", unit_price: 200 )
+
+    get "/api/v1/items/#{item.id}/merchant"
+
+    expect(response).to be_successful
+
+    merchant_parsed = JSON.parse(response.body)
+
+    expect(merchant_parsed["data"]["attributes"]["id"]).to eq(merchant.id)
+  end
 end
