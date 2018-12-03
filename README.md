@@ -30,17 +30,20 @@ RailsEngine is the first week’s project of the third (of four) learning module
 
 #### Merchants: 
 
-(Index and Show)
-GET  /api/v1/merchants                                                          
-GET  /api/v1/merchants/:id
+**Base Endpoints** 
 
-(Search queries i.e. “/find?name=example”
-GET  /api/v1/merchants/find                                                      
-GET  /api/v1/merchants/find_all      
+`GET  /api/v1/merchants`                                                          
+`GET  /api/v1/merchants/:id`
 
-(Relationship endpoints)                                           
-GET  /api/v1/merchants/:id/items                                                 
-GET  /api/v1/merchants/:id/invoices    
+**Search Endpoints**
+
+`GET  /api/v1/merchants/find`                                                      
+`GET  /api/v1/merchants/find_all`      
+
+**Relationship Endpoints**
+
+`GET  /api/v1/merchants/:id/items`                                                 
+`GET  /api/v1/merchants/:id/invoices`    
  
 **Business Intelligence Endpoints**
 
