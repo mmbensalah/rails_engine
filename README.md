@@ -1,4 +1,4 @@
-## RAILS ENGINE
+# RAILS ENGINE
 
 Blog post outlining my thoughts on the project: https://medium.com/@mmbensalah/rails-engine-part-ii-2e63e6f24768
 
@@ -9,7 +9,7 @@ RailsEngine is the first week’s project of the third (of four) learning module
 * Rails version
     * 5.2.1
 
-### Project Objective: 
+## Project Objective: 
 
 1. Write a rake task to import CSV data for tables for Merchant, Customer, Invoice, Item, InvoiceItem, Transaction	
 2. Build out index and show API endpoints for the above tables
@@ -17,7 +17,7 @@ RailsEngine is the first week’s project of the third (of four) learning module
 4. Utilize [Fast_JSONAPI](https://github.com/Netflix/fast_jsonapi) serializers to format the API outputs to the project specifications to comply with the JSON 1.0 spec.
 5. Create Active Record queries to find the data requested by the project spec
 
-### Getting Started: 
+## Getting Started: 
 1. Clone down the project and run 
   1. bundle
   2. rails db:{create,migrate}	
@@ -26,9 +26,9 @@ RailsEngine is the first week’s project of the third (of four) learning module
 2. Now you can run rails s from the terminal to visit all of the endpoints outlined below!
 3. To run the test suite, simply execute ‘rspec’
 
-### Endpoints: 
+## Endpoints: 
 
-#### Merchants: 
+### Merchants: 
 
 **Base Endpoints** 
 
