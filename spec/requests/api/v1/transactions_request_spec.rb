@@ -69,4 +69,19 @@ describe 'Transaction API' do
     expect(transaction_parsed["data"][0]["attributes"]["credit_card_number"]).to eq(transaction.credit_card_number)
     expect(transaction_parsed["data"][1]["attributes"]["credit_card_number"]).to eq(transaction_1.credit_card_number)
   end
+
+  it 'returns an invoice associated w/ a transaction' do
+    merchant      = Merchant.create(id: 1, name: "Merkel&Sons")
+    customer      = Customer.create(id: 1, first_name: "Rainy", last_name: "Day")
+    invoice       = Invoice.create!(id: 1, merchant_id: 1, customer_id: 1)
+    transaction   = Transaction.create!(id: 1, invoice_id: 1, credit_card_number: "1111222233334444")
+
+    get "/api/v1/transactions/#{transaction.id}/invoice"
+
+    expect(response).to be_successful
+
+    invoice_parsed = JSON.parse(response.body)
+
+    expect(invoice_parsed["data"]["attributes"]["id"]).to eq(invoice.id)
+  end
 end
