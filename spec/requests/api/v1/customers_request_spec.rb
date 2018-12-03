@@ -91,4 +91,39 @@ describe 'Customers API' do
     expect(customer_parsed["data"][0]["attributes"]["last_name"]).to eq(customer.last_name)
     expect(customer_parsed["data"][1]["attributes"]["last_name"]).to eq(customer_1.last_name)
   end
+
+  it 'returns multiple transactions associated with a customer' do
+    customer      = Customer.create(id: 1, first_name: "Rainy", last_name: "Day")
+    merchant      = create(:merchant, id: 1)
+    invoice       = create(:invoice, id: 1, customer_id: 1, merchant_id: 1)
+    invoice_1     = create(:invoice, id: 2, customer_id: 1, merchant_id: 1)
+    transaction   = create(:transaction, id: 1, invoice_id: 1)
+    transaction_1 = create(:transaction, id: 2, invoice_id: 1)
+    transaction_2 = create(:transaction, id: 3, invoice_id: 1)
+
+    get "/api/v1/customers/#{customer.id}/transactions"
+
+    expect(response).to be_successful
+
+    transaction_parsed = JSON.parse(response.body)
+
+    expect(transaction_parsed["data"][0]["attributes"]["id"]).to eq(transaction.id)
+    expect(transaction_parsed["data"][1]["attributes"]["id"]).to eq(transaction_1.id)
+  end
+
+  it 'returns multiple invoices associated with a customer' do
+    customer      = Customer.create(id: 1, first_name: "Rainy", last_name: "Day")
+    merchant      = create(:merchant, id: 1)
+    invoice       = create(:invoice, id: 1, customer_id: 1, merchant_id: 1)
+    invoice_1     = create(:invoice, id: 2, customer_id: 1, merchant_id: 1)
+
+    get "/api/v1/customers/#{customer.id}/invoices"
+
+    expect(response).to be_successful
+
+    invoices_parsed = JSON.parse(response.body)
+
+    expect(invoices_parsed["data"][0]["attributes"]["id"]).to eq(invoice.id)
+    expect(invoices_parsed["data"][1]["attributes"]["id"]).to eq(invoice_1.id)
+  end
 end
