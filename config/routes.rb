@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       namespace :items do
         get '/find'                   => 'find#show'
         get '/find_all'               => 'find#index'
+        get '/:id/invoice_items'      => 'invoice_items#index'
+        get '/:id/merchant'           => 'merchant#show'
       end
       namespace :invoices do
         get '/find'                   => 'find#show'
