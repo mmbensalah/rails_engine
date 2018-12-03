@@ -26,9 +26,9 @@ RailsEngine is the first week’s project of the third (of four) learning module
 2. Now you can run rails s from the terminal to visit all of the endpoints outlined below!
 3. To run the test suite, simply execute ‘rspec’
 
-Endpoints: 
+### Endpoints: 
 
-Merchants: 
+#### Merchants: 
 
 (Index and Show)
 GET  /api/v1/merchants                                                          
@@ -42,12 +42,13 @@ GET  /api/v1/merchants/find_all
 GET  /api/v1/merchants/:id/items                                                 
 GET  /api/v1/merchants/:id/invoices    
  
-(Active Record queries)                                           
-GET  /api/v1/merchants/most_revenue                                              
-GET  /api/v1/merchants/most_items                                                
-GET  /api/v1/merchants/revenue       
+**Business Intelligence Endpoints**
+
+`GET  /api/v1/merchants/most_revenue`                                              
+`GET  /api/v1/merchants/most_items`                                                
+`GET  /api/v1/merchants/revenue`       
  
-Customers:
+#### Customers:
 
 (Index and Show)
 GET  /api/v1/customers                                                              
@@ -61,7 +62,7 @@ GET  /api/v1/customers/find_all
 GET  /api/v1/customers/:id/invoices                                                  
 GET  /api/v1/customers/:id/transactions    
 
-Items:
+#### Items:
 
 (Index and Show)
 GET  /api/v1/items                                                                  
@@ -80,7 +81,7 @@ GET  /api/v1/items/most_revenue
 GET  /api/v1/items/most_items                                                      
 GET  /api/v1/items/:id/best_day    
 
- Invoices: 
+#### Invoices: 
 
 (Index and Show)
 GET  /api/v1/invoices                                                               
@@ -97,7 +98,7 @@ GET  /api/v1/invoices/:id/items
 GET  /api/v1/invoices/:id/customer                                                
 GET  /api/v1/invoices/:id/merchant     
 
-Invoice Items:
+#### Invoice Items:
 
 (Index and Show)
 GET  /api/v1/invoice_items                                                         
@@ -111,7 +112,7 @@ GET  /api/v1/invoice_items/find_all
 GET  /api/v1/invoice_items/:id/item                                                  
 GET  /api/v1/invoice_items/:id/invoice       
 
-Transactions: 
+#### Transactions: 
 
 (Index and Show)
 GET  /api/v1/transactions                                                           
