@@ -51,79 +51,95 @@ RailsEngine is the first week’s project of the third (of four) learning module
 `GET  /api/v1/merchants/most_items`                                                
 `GET  /api/v1/merchants/revenue`       
  
-#### Customers:
+### Customers:
 
-(Index and Show)
-GET  /api/v1/customers                                                              
-GET  /api/v1/customers/:id  
+**Base Endpoints** 
 
-(Search queries i.e. “/find?name=example”                                           
-GET  /api/v1/customers/find                                                          
-GET  /api/v1/customers/find_all       
+`GET  /api/v1/customers` 
+`GET  /api/v1/customers/:id`  
 
-(Relationship endpoints)                                                  
-GET  /api/v1/customers/:id/invoices                                                  
-GET  /api/v1/customers/:id/transactions    
+**Search Endpoints**
+
+`GET  /api/v1/customers/find`                                                          
+`GET  /api/v1/customers/find_all`    
+
+**Relationship Endpoints**
+
+`GET  /api/v1/customers/:id/invoices`                                                  
+`GET  /api/v1/customers/:id/transactions`    
 
 #### Items:
 
-(Index and Show)
-GET  /api/v1/items                                                                  
-GET  /api/v1/items/:id 
+**Base Endpoints** 
 
-(Search queries i.e. “/find?name=example”                                         
-GET  /api/v1/items/find                                                             
-GET  /api/v1/items/find_all   
+`GET  /api/v1/items`                                                                  
+`GET  /api/v1/items/:id` 
 
-(Relationship endpoints)                                                        
-GET  /api/v1/items/:id/invoice_items                                                 
-GET  /api/v1/items/:id/merchant  
+**Search Endpoints**
 
-(Active Record queries)                                                       
-GET  /api/v1/items/most_revenue                                                     
-GET  /api/v1/items/most_items                                                      
-GET  /api/v1/items/:id/best_day    
+`GET  /api/v1/items/find`                                                             
+`GET  /api/v1/items/find_all`   
+
+**Relationship Endpoints**
+
+`GET  /api/v1/items/:id/invoice_items`                                                 
+`GET  /api/v1/items/:id/merchant`  
+
+**Business Intelligence Endpoints**
+
+`GET  /api/v1/items/most_revenue`                                                     
+`GET  /api/v1/items/most_items`                                                      
+`GET  /api/v1/items/:id/best_day`    
 
 #### Invoices: 
 
-(Index and Show)
-GET  /api/v1/invoices                                                               
-GET  /api/v1/invoices/:id 
+**Base Endpoints** 
+
+`GET  /api/v1/invoices`                                                               
+`GET  /api/v1/invoices/:id` 
  
-(Search queries i.e. “/find?name=example”                                                
-GET  /api/v1/invoices/find                                                          
-GET  /api/v1/invoices/find_all    
+**Search Endpoints**
+
+`GET  /api/v1/invoices/find`                                                          
+`GET  /api/v1/invoices/find_all`    
  
-(Relationship endpoints)                                                   
-GET  /api/v1/invoices/:id/transactions                                             
-GET  /api/v1/invoices/:id/invoice_items                                            
-GET  /api/v1/invoices/:id/items                                                     
-GET  /api/v1/invoices/:id/customer                                                
-GET  /api/v1/invoices/:id/merchant     
+**Relationship Endpoints**
+
+`GET  /api/v1/invoices/:id/transactions`                                             
+`GET  /api/v1/invoices/:id/invoice_items`                                            
+`GET  /api/v1/invoices/:id/items`                                                   
+`GET  /api/v1/invoices/:id/customer`                                                
+`GET  /api/v1/invoices/:id/merchant`     
 
 #### Invoice Items:
 
-(Index and Show)
-GET  /api/v1/invoice_items                                                         
-GET  /api/v1/invoice_items/:id 
+**Base Endpoints** 
 
-(Search queries i.e. “/find?name=example”                            
-GET  /api/v1/invoice_items/find                                                     
-GET  /api/v1/invoice_items/find_all   
+`GET  /api/v1/invoice_items`                                                         
+`GET  /api/v1/invoice_items/:id` 
+
+**Search Endpoints**
+
+`GET  /api/v1/invoice_items/find`                                                     
+`GET  /api/v1/invoice_items/find_all`   
  
-(Relationship endpoints)                                                 
-GET  /api/v1/invoice_items/:id/item                                                  
-GET  /api/v1/invoice_items/:id/invoice       
+**Relationship Endpoints**
+
+`GET  /api/v1/invoice_items/:id/item`                                                  
+`GET  /api/v1/invoice_items/:id/invoice`       
 
 #### Transactions: 
 
-(Index and Show)
-GET  /api/v1/transactions                                                           
-GET  /api/v1/transactions/:id   
+**Base Endpoints** 
+
+`GET  /api/v1/transactions`                                                           
+`GET  /api/v1/transactions/:id`   
  
-(Search queries i.e. “/find?name=example”                                       
-GET  /api/v1/transactions/find                                                       
-GET  /api/v1/transactions/find_all   
+**Search Endpoints**
+
+`GET  /api/v1/transactions/find`                                                       
+`GET  /api/v1/transactions/find_all`   
  
-(Relationship endpoints)                                                  
-GET  /api/v1/transactions/:id/invoice    
+**Relationship Endpoints**
+
+`GET  /api/v1/transactions/:id/invoice`    
