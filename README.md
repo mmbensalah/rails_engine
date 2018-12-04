@@ -68,7 +68,7 @@ RailsEngine is the first week’s project of the third (of four) learning module
 `GET  /api/v1/customers/:id/invoices`                                                  
 `GET  /api/v1/customers/:id/transactions`    
 
-#### Items:
+### Items:
 
 **Base Endpoints** 
 
@@ -91,7 +91,7 @@ RailsEngine is the first week’s project of the third (of four) learning module
 `GET  /api/v1/items/most_items`                                                      
 `GET  /api/v1/items/:id/best_day`    
 
-#### Invoices: 
+### Invoices: 
 
 **Base Endpoints** 
 
@@ -111,7 +111,7 @@ RailsEngine is the first week’s project of the third (of four) learning module
 `GET  /api/v1/invoices/:id/customer`                                                
 `GET  /api/v1/invoices/:id/merchant`     
 
-#### Invoice Items:
+### Invoice Items:
 
 **Base Endpoints** 
 
@@ -128,7 +128,7 @@ RailsEngine is the first week’s project of the third (of four) learning module
 `GET  /api/v1/invoice_items/:id/item`                                                  
 `GET  /api/v1/invoice_items/:id/invoice`       
 
-#### Transactions: 
+### Transactions: 
 
 **Base Endpoints** 
 
